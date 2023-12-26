@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--必须和mapper类的路径一致-->
+<mapper namespace="com.itheima.mapper.EmpMapper">
+    <!--动态sql  if和where-->
+    <!-- id是方法名 resultType是返回值的单体结果-->
+    <select id="selectfactor2" resultType="com.itheima.pojo.Emp">
+        select *
+        from emp
+        <where>  <!--自动判定里面条件是否成立，不然的话如果name为空直接拼接的是where and xxx-->
+            <if test="name!=null">
+                name like concat('%',#{name},'%')
+            </if>
+            <if test="gender!=null">
+                and gender=#{gender}
+            </if>
+            <if test="begin!=null and end!=null">
+                and entrydate between #{begin} and #{end}
+            </if>
+        order by update_time desc
+        </where>
+    </select>
+    <!--动态sql   基本sql-->
+    <select id="selectfactor" resultType="com.itheima.pojo.Emp">
+        select *
+        from emp
+        where gender=#{gender}
+    </select>
+
+    <select id="list2" resultType="com.itheima.pojo.Emp">
+        select *
+        from emp
+        <where>
+            <if test="name!=null">
+                name like concat('%',#{name},'%')
+            </if>
+            <if test="gender!=null">
+                and gender=#{gender}
+            </if>
+            <if test="begin!=null and end!=null">
+                and entrydate between #{begin} and #{end}
+            </if>
+        </where>
+
+    </select>
+
+    <update id="update">
+        update emp
+        <set>
+           <if test="username!=null and username!=''">
+                username=#{username},
+           </if>
+            <if test="password!=null and password!=''">
+                password=#{password},
+            </if>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="gender!=null">
+                gender=#{gender},
+            </if>
+            <if test="image!=null and image!=''">
+                image=#{image},
+            </if>
+            <if test="updateTime!=null">
+                update_time=now()
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <sql id="commonDelete">
+        delete
+        from emp
+        where id in
+    </sql>
+
+    <delete id="deletebyid">
+        <include refid="commonDelete">
+        </include>
+        <!--
+            collection:遍历的集合
+            item:遍历出来的元素(要判断的列名)
+            separator:分隔符
+            open:遍历开始前拼接的sql片段
+            close:遍历结束后拼接的sql片段
+        -->
+        <foreach collection="ids" item="id" separator="," open="(" close=")">   <!-- (id,id,id)-->
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="deletebyid2">
+        <include refid="commonDelete">
+        </include>
+        <!--
+            collection:遍历的集合
+            item:遍历出来的元素(要判断的列名)
+            separator:分隔符
+            open:遍历开始前拼接的sql片段
+            close:遍历结束后拼接的sql片段
+        -->
+        <foreach collection="ids" item="id" separator="," open="(" close=")">   <!-- (id,id,id)-->
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="delete">
+        delete
+        from emp
+        where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

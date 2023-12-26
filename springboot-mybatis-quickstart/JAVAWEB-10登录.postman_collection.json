@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "14d37b8e-a554-48f8-ba91-d5cf6b76dd44",
+		"name": "JAVAWEB-10登录",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30595179",
+		"_collection_link": "https://gold-crescent-713998.postman.co/workspace/big-event~ebbf6065-90b7-4499-a4e3-efb650b1208c/collection/30595179-14d37b8e-a554-48f8-ba91-d5cf6b76dd44?action=share&source=collection_link&creator=30595179"
+	},
+	"item": [
+		{
+			"name": "登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"weiyixiao\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

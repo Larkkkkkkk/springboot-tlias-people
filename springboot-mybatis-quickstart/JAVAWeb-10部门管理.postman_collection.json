@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "0bee50e2-0a40-4dfc-a938-2b8cf4177536",
+		"name": "JAVAWeb-10部门管理",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30595179",
+		"_collection_link": "https://gold-crescent-713998.postman.co/workspace/big-event~ebbf6065-90b7-4499-a4e3-efb650b1208c/collection/30595179-0bee50e2-0a40-4dfc-a938-2b8cf4177536?action=share&source=collection_link&creator=30595179"
+	},
+	"item": [
+		{
+			"name": "部门列表查询",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoi6Z-m5LiA56yRIiwiaWQiOjQsInVzZXJuYW1lIjoid2VpeWl4aWFvIiwiZXhwIjoxNzAzNjM1NzUzfQ.lDgfynA9H4YJWeoX1yhFgue4D4NwtA3mE5cdgjMJX6w",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/depts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"depts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除部门",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoi6Z-m5LiA56yRIiwiaWQiOjQsInVzZXJuYW1lIjoid2VpeWl4aWFvIiwiZXhwIjoxNzAzNjM1NzcyfQ.8m5lWGA4p2IKODTVDKOedsVLVh4I_hzbeUuhfxiYbEY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/depts/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"depts",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加部门",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoi6Z-m5LiA56yRIiwiaWQiOjQsInVzZXJuYW1lIjoid2VpeWl4aWFvIiwiZXhwIjoxNzAzNjM1NzcyfQ.8m5lWGA4p2IKODTVDKOedsVLVh4I_hzbeUuhfxiYbEY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"就业部2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/depts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"depts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据id查询",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOiIxIiwidXNlcm5hbWUiOiLlvKDkuIkifSwiZXhwIjoxNzAzNjAyNDMyfQ.6F4PG0v8n_5amr3dGNGQVNtbHSEpFTyVx5xYvqmdz1g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/depts/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"depts",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改部门",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\": 1,\r\n\t\"name\": \"学工部2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/depts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"depts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.addHeader(\"authorization:eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoi6Z-m5LiA56yRIiwiaWQiOjQsInVzZXJuYW1lIjoid2VpeWl4aWFvIiwiZXhwIjoxNzAzNjM1NzcyfQ.8m5lWGA4p2IKODTVDKOedsVLVh4I_hzbeUuhfxiYbEY\");"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
